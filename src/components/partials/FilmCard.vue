@@ -27,6 +27,22 @@ export default {
               v-else-if="filmObj.original_language ==='it' "
               :src="getImage(`../../assets/img/it.png`)"
               :alt="filmObj.original_language">
+            <img
+              v-else-if="filmObj.original_language ==='de' "
+              :src="getImage(`../../assets/img/de.webp`)"
+              :alt="filmObj.original_language">
+            <img
+              v-else-if="filmObj.original_language ==='fr' "
+              :src="getImage(`../../assets/img/fr.png`)"
+              :alt="filmObj.original_language">
+            <img
+              v-else-if="filmObj.original_language ==='es' "
+              :src="getImage(`../../assets/img/es.webp`)"
+              :alt="filmObj.original_language">
+            <img
+              v-else-if="filmObj.original_language ==='ja' "
+              :src="getImage(`../../assets/img/jp.png`)"
+              :alt="filmObj.original_language">
             <h4 v-else>Lingua: {{ filmObj.original_language }}</h4>
             <h4>Voto: {{ filmObj.vote_average }}</h4>
           </div>
