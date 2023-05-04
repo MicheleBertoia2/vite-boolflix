@@ -1,4 +1,5 @@
 import {reactive} from "vue";
+import axios from "axios";
 
 export const store = reactive({
   //Api
@@ -9,6 +10,19 @@ export const store = reactive({
   apiUrlPopular: "https://api.themoviedb.org/3/movie/popular?api_key=f62a410fadd24c51e0a6a6df10be78df&page=1",
 
   //stored data
-  
+  filmArray: [],
+
   //api calls
+  getMovieApi(){
+    axios.get(this.apiUrlMovieCall,{
+      params:{
+        query: this.queryParamStr
+      }
+    })
+    .then((result) => {
+      console.log(result.data.results);
+    }).catch((err) => {
+      console.log(err);
+    });
+  },
 })

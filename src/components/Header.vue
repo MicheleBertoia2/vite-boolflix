@@ -17,8 +17,8 @@ export default {
     <img src="/logo-boolflix.png" alt="logo">
 
     <div class="search-bar d-flex">
-      <input type="text" class="form-control">
-      <button class="btn btn-danger mx-3">Cerca</button>
+      <input type="text" class="form-control" v-model="store.queryParamStr">
+      <button class="btn btn-danger mx-3" @click="store.getMovieApi()">Cerca</button>
     </div>
 
   </header>
