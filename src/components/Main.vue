@@ -27,7 +27,7 @@ export default {
 
         <div class="mb-shows-container" v-else>
           <div class="films row" v-show ="store.filmArray.length > 0">
-            <h2>Film</h2>
+            <h2>Film {{ store.categorie }}</h2>
             <FilmCard v-for="film in store.filmArray" :key="film.id" :filmObj="film"/>   
           </div>
           <div class="tv row" v-show="store.tvArray.length > 0">

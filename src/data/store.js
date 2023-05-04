@@ -57,8 +57,26 @@ export const store = reactive({
   },
   
   getShowsApi(){
-    
+    this.categorie = "";
     this.getTvApi();
     this.getMovieApi()
-  }
+  },
+
+  getPopularApi(){
+    axios.get(this.apiUrlPopular,{
+      params:{
+        language: this.langParam,
+      }
+    })
+    .then((result) => {
+      
+        this.filmArray = result.data.results
+        this.categorie = "Popolari"
+    }).catch((err) => {
+      console.log(err);
+    });
+  },
+
+  //others
+  categorie: ""
 })
