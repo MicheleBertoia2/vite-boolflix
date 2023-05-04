@@ -23,7 +23,7 @@ export default {
 
         <div class="col text-center" v-if="store.filmArray.length === 0"> Non ci sono risultati</div>
 
-        <div class="mb-cards-container row" v-else>
+        <div class="mb-films-container row" v-else>
           <FilmCard v-for="film in store.filmArray" :key="film.id" :filmObj="film"/>        
 
         </div>
