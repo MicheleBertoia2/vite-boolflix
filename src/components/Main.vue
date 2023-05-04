@@ -21,10 +21,17 @@ export default {
     <div class="container">
       <div class="row">
 
-        <div class="col text-center" v-if="store.filmArray.length === 0"> Non ci sono risultati</div>
+        <div class="col text-center" v-if="store.filmArray.length === 0 && store.tvArray.length === 0"> Non ci sono risultati</div>
 
-        <div class="mb-films-container row" v-else>
-          <FilmCard v-for="film in store.filmArray" :key="film.id" :filmObj="film"/>        
+        <div class="mb-shows-container" v-else>
+          <div class="films row">
+            <h2>Film</h2>
+            <FilmCard v-for="film in store.filmArray" :key="film.id" :filmObj="film"/>   
+          </div>
+          <div class="tv row">
+            <h2>Serie TV</h2>
+            <FilmCard v-for="film in store.filmArray" :key="film.id" :filmObj="film"/>   
+          </div>
 
         </div>
 

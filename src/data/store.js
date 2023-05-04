@@ -12,6 +12,7 @@ export const store = reactive({
 
   //stored data
   filmArray: [],
+  tvArray: [],
 
   //api calls
   getMovieApi(){
@@ -28,11 +29,38 @@ export const store = reactive({
       } else {
         this.filmArray = result.data.results
         this.srcPlaceholder = "Cerca un film o una serie Tv"
-        console.log(this.filmArray);
       }
       this.queryParamStr = ""
     }).catch((err) => {
       console.log(err);
     });
   },
+
+  getTvApi(){
+    axios.get(this.apiUrlTvCall,{
+      params:{
+        query: this.queryParamStr,
+        language: this.langParam,
+      }
+    })
+    .then((result) => {
+      if(result.data.results.length === 0){
+        this.srcPlaceholder = "Inserisci una ricerca valida"
+      } else {
+        this.tvArray = result.data.results
+        this.srcPlaceholder = "Cerca un film o una serie Tv"
+      }
+      this.queryParamStr = ""
+    }).catch((err) => {
+      console.log(err);
+    });
+  },
+  
+  getShowsApi(){
+    this.filmArray = [];
+    this.tvArray = [];
+    this.getTvApi();
+    this.getMovieApi()
+    console.log(this.tvArray);
+  }
 })

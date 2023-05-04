@@ -22,11 +22,11 @@ export default {
         class="form-control"
         :placeholder="store.srcPlaceholder"
         v-model="store.queryParamStr"
-        @keyup.enter="store.getMovieApi()">
+        @keyup.enter="store.getShowsApi()">
 
       <button
         class="btn btn-danger mx-3"
-        @click="store.getMovieApi()">Cerca</button>
+        @click="store.getShowsApi()">Cerca</button>
     </div>
 
   </header>
