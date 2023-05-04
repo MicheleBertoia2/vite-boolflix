@@ -57,10 +57,8 @@ export const store = reactive({
   },
   
   getShowsApi(){
-    this.filmArray = [];
-    this.tvArray = [];
+    
     this.getTvApi();
     this.getMovieApi()
-    console.log(this.tvArray);
   }
 })

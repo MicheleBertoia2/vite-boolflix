@@ -1,9 +1,9 @@
 
 <script>
 export default {
-  name: "FilmCard",
+  name: "TvCard",
   props:{
-    filmObj: Object
+    tvObj: Object
   },
   methods:{
     getImage(img){
@@ -17,38 +17,39 @@ export default {
           <div
             class="mb-card col-2"
             >
-            <h4>{{ filmObj.title }}</h4>
-            <h4>{{ filmObj.original_title }}</h4>
+            <h4>{{ tvObj.name }}</h4>
             
+            <h4>{{ tvObj.original_name }}</h4>
+
             <div class="lang-box">
               <img
-                v-if="filmObj.original_language ==='en' "
+                v-if="tvObj.original_language ==='en' "
                 :src="getImage(`../../assets/img/en.png`)"
-                :alt="filmObj.original_language">
+                :alt="tvObj.original_language">
               <img
-                v-else-if="filmObj.original_language ==='it' "
+                v-else-if="tvObj.original_language ==='it' "
                 :src="getImage(`../../assets/img/it.png`)"
-                :alt="filmObj.original_language">
+                :alt="tvObj.original_language">
               <img
-                v-else-if="filmObj.original_language ==='de' "
+                v-else-if="tvObj.original_language ==='de' "
                 :src="getImage(`../../assets/img/de.webp`)"
-                :alt="filmObj.original_language">
+                :alt="tvObj.original_language">
               <img
-                v-else-if="filmObj.original_language ==='fr' "
+                v-else-if="tvObj.original_language ==='fr' "
                 :src="getImage(`../../assets/img/fr.png`)"
-                :alt="filmObj.original_language">
+                :alt="tvObj.original_language">
               <img
-                v-else-if="filmObj.original_language ==='es' "
+                v-else-if="tvObj.original_language ==='es' "
                 :src="getImage(`../../assets/img/es.webp`)"
-                :alt="filmObj.original_language">
+                :alt="tvObj.original_language">
               <img
-                v-else-if="filmObj.original_language ==='ja' "
+                v-else-if="tvObj.original_language ==='ja' "
                 :src="getImage(`../../assets/img/jp.png`)"
-                :alt="filmObj.original_language">
-              <h4 v-else>Lingua: {{ filmObj.original_language }}</h4>
+                :alt="tvObj.original_language">
+              <h4 v-else>Lingua: {{ tvObj.original_language }}</h4>
             </div>
 
-            <h4>Voto: {{ filmObj.vote_average }}</h4>
+            <h4>Voto: {{ tvObj.vote_average }}</h4>
           </div>
   
 </template>
