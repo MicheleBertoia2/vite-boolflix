@@ -40,7 +40,7 @@ export default {
 
 <template>
           <div
-            class="mb-card mb-3"
+            class="mb-card mb-1 me-2"
             >
             <img class="mb-cover" :src="store.basicImgUrl + tvObj.poster_path" :alt="tvObj.name">
 

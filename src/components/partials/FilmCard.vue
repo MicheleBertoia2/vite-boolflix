@@ -39,7 +39,7 @@ export default {
 
 <template>
           <div
-            class="mb-card mb-3"
+            class="mb-card mb-1 me-2"
             >
             <img class="mb-cover" :src="store.basicImgUrl + filmObj.poster_path" :alt="filmObj.title">
             <div class="film-info">

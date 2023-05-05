@@ -26,11 +26,11 @@ export default {
         <div class="col text-center" v-if="store.filmArray.length === 0 && store.tvArray.length === 0"> Non ci sono risultati</div>
 
         <div class="mb-shows-container" v-else>
-          <div class="films row justify-content-between" v-show ="store.filmArray.length > 0">
+          <div class="films row" v-show ="store.filmArray.length > 0">
             <h2>Film {{ store.categorie }}</h2>
             <FilmCard v-for="film in store.filmArray" :key="film.id" :filmObj="film"/>   
           </div>
-          <div class="tv row justify-content-between" v-show="store.tvArray.length > 0">
+          <div class="tv row" v-show="store.tvArray.length > 0">
             <h2>Serie TV</h2>
             <TvCard v-for="tv in store.tvArray" :key="tv.id" :tvObj="tv"/>   
           </div>
