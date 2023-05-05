@@ -14,6 +14,9 @@ export const store = reactive({
   filmArray: [],
   tvArray: [],
 
+  //image path
+  basicImgUrl: "https://image.tmdb.org/t/p/w342",
+
   //api calls
   getMovieApi(){
     
