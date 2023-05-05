@@ -1,7 +1,16 @@
 
 <script>
+import {store} from "../../data/store";
 export default {
   name: "TvCard",
+  data(){
+    return{
+      store,
+      isHalf: false,
+      fullStars: [],
+      emptyStars: [],
+    }
+  },
   props:{
     tvObj: Object
   },
@@ -9,7 +18,23 @@ export default {
     getImage(img){
       return new URL(img,import.meta.url).href
     },
-  }
+    getStars(rating){
+      let rest = rating;
+      for(let i =rating; i >= 1; i--){
+        this.fullStars.push('f')
+        rest--
+      }
+      if(rest == 0.5){
+        this.isHalf = true
+      }
+
+      for(let i = 5 - rating; i>= 1; i--){
+        this.emptyStars.push('e')
+      }
+
+    }
+  },
+  
 }
 </script>
 
@@ -50,6 +75,17 @@ export default {
             </div>
 
             <h4>Voto: {{ tvObj.vote_average }}</h4>
+            <div class="votebox">
+              {{ getStars((Math.round(tvObj.vote_average)/2).toFixed(1)) }}
+              <i
+                v-for="index in fullStars" :key="index"
+                class="fa-solid fa-star"></i>
+
+              <i v-if="isHalf" class="fa-solid fa-star-half-stroke"></i>
+              <i
+                v-for="index in emptyStars" :key="index"
+                class="fa-regular fa-star"></i>
+            </div>
           </div>
   
 </template>

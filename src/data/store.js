@@ -78,5 +78,7 @@ export const store = reactive({
   },
 
   //others
-  categorie: ""
+  categorie: "",
+
+  
 })
