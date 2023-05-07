@@ -9,11 +9,11 @@ export default {
       isHalf: false,
       fullStars: [],
       emptyStars: [],
-      posterUrl: store.basicImgUrl + this.tvObj.poster_path,
+      posterUrl: store.basicImgUrl + this.showObj.poster_path,
     }
   },
   props:{
-    tvObj: Object
+    showObj: Object
   },
   methods:{
     getImage(img){
@@ -46,44 +46,45 @@ export default {
           <div
             class="mb-card mb-1 me-2"
             >
-            <img class="mb-cover" :src="posterUrl" @error="errorLoadingPoster" :alt="tvObj.name">
+            <img class="mb-cover" :src="posterUrl" @error="errorLoadingPoster" :alt="showObj.name">
 
             <div class="tv-info d-none">
               
-                          <h4>{{ tvObj.name }}</h4>
+                          <h4 v-if="showObj.title">{{ showObj.title }}</h4>
+                          <h4 v-else>{{ showObj.name }}</h4>
                           
               
                           <div class="lang-box">
                             <img
-                              v-if="tvObj.original_language ==='en' "
+                              v-if="showObj.original_language ==='en' "
                               :src="getImage(`../../assets/img/en.png`)"
-                              :alt="tvObj.original_language">
+                              :alt="showObj.original_language">
                             <img
-                              v-else-if="tvObj.original_language ==='it' "
+                              v-else-if="showObj.original_language ==='it' "
                               :src="getImage(`../../assets/img/it.png`)"
-                              :alt="tvObj.original_language">
+                              :alt="showObj.original_language">
                             <img
-                              v-else-if="tvObj.original_language ==='de' "
+                              v-else-if="showObj.original_language ==='de' "
                               :src="getImage(`../../assets/img/de.webp`)"
-                              :alt="tvObj.original_language">
+                              :alt="showObj.original_language">
                             <img
-                              v-else-if="tvObj.original_language ==='fr' "
+                              v-else-if="showObj.original_language ==='fr' "
                               :src="getImage(`../../assets/img/fr.png`)"
-                              :alt="tvObj.original_language">
+                              :alt="showObj.original_language">
                             <img
-                              v-else-if="tvObj.original_language ==='es' "
+                              v-else-if="showObj.original_language ==='es' "
                               :src="getImage(`../../assets/img/es.webp`)"
-                              :alt="tvObj.original_language">
+                              :alt="showObj.original_language">
                             <img
-                              v-else-if="tvObj.original_language ==='ja' "
+                              v-else-if="showObj.original_language ==='ja' "
                               :src="getImage(`../../assets/img/jp.png`)"
-                              :alt="tvObj.original_language">
-                            <h4 v-else>Lingua: {{ tvObj.original_language }}</h4>
+                              :alt="showObj.original_language">
+                            <h4 v-else>Lingua: {{ showObj.original_language }}</h4>
                           </div>
               
-                          <h4>Voto: {{ tvObj.vote_average }}</h4>
+                          <h4>Voto: {{ showObj.vote_average }}</h4>
                           <div class="votebox">
-                            {{ getStars((Math.round(tvObj.vote_average)/2).toFixed(1)) }}
+                            {{ getStars((Math.round(showObj.vote_average)/2).toFixed(1)) }}
                             <i
                               v-for="index in fullStars" :key="index"
                               class="fa-solid fa-star"></i>
