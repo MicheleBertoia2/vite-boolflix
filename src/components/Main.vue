@@ -1,12 +1,10 @@
 
 <script>
 import {store} from "../data/store";
-import FilmCard from './partials/FilmCard.vue';
 import ShowCard from "./partials/ShowCard.vue";
 export default {
   name: "Main",
   components:{
-    FilmCard,
     ShowCard,
   },
 

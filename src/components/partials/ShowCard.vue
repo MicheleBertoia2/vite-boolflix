@@ -48,7 +48,7 @@ export default {
             >
             <img class="mb-cover" :src="posterUrl" @error="errorLoadingPoster" :alt="showObj.name">
 
-            <div class="tv-info d-none">
+            <div class="tv-info">
               
                           <h4 v-if="showObj.title">{{ showObj.title }}</h4>
                           <h4 v-else>{{ showObj.name }}</h4>
@@ -82,7 +82,6 @@ export default {
                             <h4 v-else>Lingua: {{ showObj.original_language }}</h4>
                           </div>
               
-                          <h4>Voto: {{ showObj.vote_average }}</h4>
                           <div class="votebox">
                             {{ getStars((Math.round(showObj.vote_average)/2).toFixed(1)) }}
                             <i
@@ -113,14 +112,56 @@ export default {
       .tv-info{
         position: absolute;
         z-index: 5;
+        opacity: 0;
+        transition: all 0.6s;
+        transition-delay: 0.3s;
         .lang-box{
           img{
           height: 20px;
           width: 30px;
+         }
+        }
+      }      
+    }
+
+    .mb-card{
+      &::after,
+      &::before{
+        position: absolute;
+        z-index: 3;
+        content: "";
+        width: 15%;
+        height: 15%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 25px;
+        font-weight: bold;
+        background-color: rgb(134, 138, 139);
+        transition: all 0.5s;
+      }
+      &::before{
+        top: 0;
+        right: -12px;
+        border-radius: 0 0 0 100%;
+      }
+      &::after{
+        bottom: 0;
+        left: 12px;
+        border-radius: 0 100%  0 0;
+      }
+      &:hover::before,
+      &:hover::after{
+        width: 200px;
+        height: 300px;
+        background-color: black;
+        transition: all 0.5s;
+      }
+      &:hover{
+        .tv-info{
+          opacity: 1;
         }
       }
-      }
-      
-      
     }
+  
 </style>
