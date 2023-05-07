@@ -9,6 +9,7 @@ export default {
       isHalf: false,
       fullStars: [],
       emptyStars: [],
+      posterUrl: store.basicImgUrl + this.tvObj.poster_path,
     }
   },
   props:{
@@ -32,6 +33,9 @@ export default {
         this.emptyStars.push('e')
       }
 
+    },
+    errorLoadingPoster(){
+      this.posterUrl = this.getImage(`../../assets/img/poster-not-found.jpg`) 
     }
   },
   
@@ -42,9 +46,9 @@ export default {
           <div
             class="mb-card mb-1 me-2"
             >
-            <img class="mb-cover" :src="store.basicImgUrl + tvObj.poster_path" :alt="tvObj.name">
+            <img class="mb-cover" :src="posterUrl" @error="errorLoadingPoster" :alt="tvObj.name">
 
-            <div class="tv-info">
+            <div class="tv-info d-none">
               
                           <h4>{{ tvObj.name }}</h4>
                           
@@ -103,6 +107,7 @@ export default {
       .mb-cover{
         position: absolute;
         object-fit: cover;
+        width: 100%;
       }
       .tv-info{
         position: absolute;

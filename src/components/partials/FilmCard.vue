@@ -42,7 +42,7 @@ export default {
             class="mb-card mb-1 me-2"
             >
             <img class="mb-cover" :src="store.basicImgUrl + filmObj.poster_path" :alt="filmObj.title">
-            <div class="film-info">
+            <div class="film-info d-none">
 
               <h4>{{ filmObj.title }}</h4>
               
