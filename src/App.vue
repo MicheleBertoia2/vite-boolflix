@@ -2,6 +2,7 @@
 <script>
 import Header from './components/Header.vue';
 import Main from './components/Main.vue';
+import Loader from './components/partials/Loader.vue';
 
 import {store} from "./data/store";
 export default {
@@ -9,6 +10,7 @@ export default {
   components: {
     Header,
     Main,
+    Loader
   },
 
   data(){
@@ -25,7 +27,8 @@ export default {
 
 <template>
   <Header />
-  <Main />
+  <Loader v-if="store.isLoading"/>
+  <Main v-else />
 </template>
 
 <style lang="scss">

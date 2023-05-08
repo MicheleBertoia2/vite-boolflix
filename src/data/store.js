@@ -10,6 +10,10 @@ export const store = reactive({
   srcPlaceholder: "Cerca un film o una serie Tv",
   apiUrlPopular: "https://api.themoviedb.org/3/movie/popular?api_key=f62a410fadd24c51e0a6a6df10be78df&page=1",
 
+
+  //loader
+  isLoading: true,
+
   //stored data
   filmArray: [],
   tvArray: [],
@@ -19,7 +23,7 @@ export const store = reactive({
 
   //api calls
   getMovieApi(){
-    
+    this.isLoading = true
     axios.get(this.apiUrlMovieCall,{
       params:{
         query: this.queryParamStr,
@@ -37,9 +41,13 @@ export const store = reactive({
     }).catch((err) => {
       console.log(err);
     });
+    this.isLoading = false
+
   },
 
   getTvApi(){
+    this.isLoading = true
+
     axios.get(this.apiUrlTvCall,{
       params:{
         query: this.queryParamStr,
@@ -57,6 +65,8 @@ export const store = reactive({
     }).catch((err) => {
       console.log(err);
     });
+    this.isLoading = false
+
   },
   
   getShowsApi(){
@@ -66,6 +76,7 @@ export const store = reactive({
   },
 
   getPopularApi(){
+    this.isLoading = true
     axios.get(this.apiUrlPopular,{
       params:{
         language: this.langParam,
@@ -78,6 +89,8 @@ export const store = reactive({
     }).catch((err) => {
       console.log(err);
     });
+    this.isLoading = false
+
   },
 
   //others
